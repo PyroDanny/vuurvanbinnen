@@ -1,4 +1,5 @@
 import Link from "next/link";
+import clsx from "clsx";
 
 const pijlers = [
   {
@@ -116,10 +117,10 @@ export default function Home() {
                 <a
                   key={p.naam}
                   href="#"
-                  className={`card card-hover${p.warm ? "card-warm" : ""}`}
+                  className={clsx("card card-hover", p.warm && "card-warm")}
                 >
                   <span
-                    className={`tag${p.warm ? "tag-warm" : ""}`}
+                    className={clsx("tag", p.warm && "tag-warm")}
                     style={{ alignSelf: "flex-start" }}
                   >
                     {p.naam}
