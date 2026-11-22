@@ -1,4 +1,5 @@
 import Link from "next/link";
+import clsx from "clsx";
 
 const pijlers = [
   {
@@ -81,9 +82,9 @@ export default function Home() {
           >
             <p className="eyebrow eyebrow-dot">Helmond · Eindhoven</p>
             <h1 className="display">
-              Koud van buiten,
+              <span className="text-frost">Koud van buiten,</span>
               <br />
-              <span className="text-flame">vuur van binnen.</span>
+              <span className="text-flame">Vuur van binnen.</span>
             </h1>
             <p className="lead">
               Na mijn ongeluk en hersenletsel moest ik mijn kracht opnieuw
@@ -116,10 +117,10 @@ export default function Home() {
                 <a
                   key={p.naam}
                   href="#"
-                  className={`card card-hover${p.warm ? "card-warm" : ""}`}
+                  className={clsx("card card-hover", p.warm && "card-warm")}
                 >
                   <span
-                    className={`tag${p.warm ? "tag-warm" : ""}`}
+                    className={clsx("tag", p.warm && "tag-warm")}
                     style={{ alignSelf: "flex-start" }}
                   >
                     {p.naam}

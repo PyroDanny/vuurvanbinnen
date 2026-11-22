@@ -65,6 +65,7 @@
   --animate-marquee: marquee 48s linear infinite;
   --animate-flicker: flicker 3.2s ease-in-out infinite;
   --animate-flame-shift: flame-shift 8s ease-in-out infinite alternate;
+  --animate-frost-shift: frost-shift 11s ease-in-out infinite alternate;
   --animate-heat: heat 3.6s ease-in-out infinite;
   --animate-spark: spark 6s linear infinite;
   --animate-dot-glow: dot-glow 4s ease-in-out infinite;
@@ -72,6 +73,7 @@
   --animate-draw: draw 7s ease-in-out infinite alternate;
   --animate-spin-slow: spin 60s linear infinite;
   --animate-ripple: ripple 6s ease-out infinite;
+  --animate-frost-shimmer: frost-shimmer 7s ease-in-out infinite;
 }
 
 /* Keyframes staan buiten @theme, zodat ze altijd in de CSS komen */
@@ -125,6 +127,14 @@
   }
   to {
     background-position: 100% 50%;
+  }
+}
+@keyframes frost-shift {
+  from {
+    background-position: 100% 50%;
+  }
+  to {
+    background-position: 0% 50%;
   }
 }
 @keyframes heat {
@@ -223,6 +233,15 @@
     opacity: 0;
   }
 }
+@keyframes frost-shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
 @keyframes ember-b {
   0% {
     transform: translate3d(0, 0, 0) scale(1);
@@ -265,6 +284,10 @@
   --flame-text: #ffb37a;
   --flame-soft: rgba(255, 107, 44, 0.16);
   --glow: rgba(255, 107, 44, 0.5);
+  --frost-a: #f4fbff;
+  --frost-b: #cfefff;
+  --frost-c: #8fd3f4;
+  --frost-glow: rgba(143, 211, 244, 0.42);
   --flame-a: #ffb37a;
   --flame-b: #ff6b2c;
   --flame-c: #e0541c;
@@ -283,6 +306,13 @@
   --ph-warm: #3a1e10;
   --ph-warm-text: #f4d9c4;
   --input-bg: #0a0f14;
+  /* Vorst: koude tekst en gloed */
+  --frost-a: #ffffff;
+  --frost-b: #d6e8ee;
+  --frost-c: #9ccbe0;
+  --frost-d: #eaf6fb;
+  --frost-glow: rgba(143, 203, 232, 0.55);
+  --frost-glow-soft: rgba(143, 203, 232, 0.22);
 }
 
 [data-theme="light"] {
@@ -304,6 +334,10 @@
   --flame-text: #b8410f;
   --flame-soft: rgba(255, 107, 44, 0.14);
   --glow: rgba(255, 107, 44, 0.4);
+  --frost-a: #1f5e73;
+  --frost-b: #2f7e99;
+  --frost-c: #4fa3c2;
+  --frost-glow: rgba(79, 163, 194, 0.28);
   --flame-a: #e0541c;
   --flame-b: #b8410f;
   --flame-c: #f06a2a;
@@ -322,6 +356,12 @@
   --ph-warm: #f6d9c4;
   --ph-warm-text: #7a2a0c;
   --input-bg: #ffffff;
+  --frost-a: #1f5e73;
+  --frost-b: #2f7891;
+  --frost-c: #164a5c;
+  --frost-d: #3b8199;
+  --frost-glow: rgba(47, 120, 145, 0.35);
+  --frost-glow-soft: rgba(47, 120, 145, 0.14);
 }
 
 /* ---------------------------------------------------------------------
@@ -357,6 +397,8 @@
   --color-warn-text: var(--warn-text);
   --color-ph-cold: var(--ph-cold);
   --color-ph-warm: var(--ph-warm);
+  --color-frost: var(--frost-b);
+  --color-frost-glow: var(--frost-glow);
 }
 
 /* ---------------------------------------------------------------------
@@ -596,6 +638,74 @@
   color: transparent;
   -webkit-text-fill-color: transparent;
   animation: var(--animate-flame-shift);
+}
+
+/* Koude tekst: text-frost
+   IJzig verloop (wit → ijsblauw) met een koude gloed en een trage glinstering.
+   Tegenhanger van text-flame, bijv. <span class="text-frost">Koud van buiten,</span> */
+@utility text-frost {
+  background: linear-gradient(
+    100deg,
+    var(--frost-a) 0%,
+    var(--frost-b) 30%,
+    var(--frost-c) 50%,
+    var(--frost-d) 70%,
+    var(--frost-a) 100%
+  );
+  background-size: 240% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 18px var(--frost-glow-soft))
+    drop-shadow(0 0 2px var(--frost-glow));
+  animation: var(--animate-frost-shimmer);
+}
+
+/* Alleen de koude gloed, de tekstkleur blijft: glow-frost
+   Handig op gewone tekst, labels of een cijfer (bijv. de ademtimer). */
+@utility glow-frost {
+  text-shadow:
+    0 0 1px var(--frost-glow),
+    0 0 14px var(--frost-glow-soft),
+    0 0 32px var(--frost-glow-soft);
+}
+
+/* Koude tekst met ijzige gloed: text-frost
+   IJswit → lichtblauw kleurverloop dat langzaam de andere kant op beweegt dan
+   text-flame (als wind), met een koele gloed eromheen. In licht thema: diep ijsblauw. */
+@utility text-frost {
+  background: linear-gradient(
+    100deg,
+    var(--frost-a) 0%,
+    var(--frost-b) 28%,
+    var(--frost-c) 50%,
+    var(--frost-b) 72%,
+    var(--frost-a) 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 2px var(--frost-glow))
+    drop-shadow(0 0 22px var(--frost-glow));
+  animation: var(--animate-frost-shift);
+}
+
+/* Alleen de koude gloed, de tekstkleur blijft gewoon: glow-frost
+   Handig voor gewone tekst, labels of als je text-frost te sterk vindt. */
+@utility glow-frost {
+  text-shadow:
+    0 0 10px var(--frost-glow),
+    0 0 28px var(--frost-glow);
+}
+
+/* De warme tegenhanger, voor de symmetrie: glow-flame */
+@utility glow-flame {
+  text-shadow:
+    0 0 10px var(--glow),
+    0 0 28px var(--glow);
 }
 
 /* Omlijnde tekst (marquee): text-stroke */
