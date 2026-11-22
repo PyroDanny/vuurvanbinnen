@@ -1,6 +1,6 @@
 # 🔥 Vuur van Binnen
 
-> **Koud van buiten, vuur van binnen.**
+> **Koud van buiten, Vuur van binnen.**
 
 Een persoonlijk platform over kracht terugvinden na tegenslag. Na een ongeluk en niet-aangeboren hersenletsel (NAH) vond ik mijn weg terug met vier pijlers: **kou, ademhaling, beweging en vasten**. Op deze site deel ik dat eerlijk: mijn verhaal, gidsen, een logboek, een ademtimer, een 30-dagenchallenge en sessies in de regio Helmond/Eindhoven.
 
