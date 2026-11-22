@@ -3,12 +3,14 @@ import Link from "next/link";
 const pijlers = [
   {
     naam: "Kou",
-    tekst: "Koud douchen, ijsbaden en winterzwemmen. Stap voor stap wennen aan de kou.",
+    tekst:
+      "Koud douchen, ijsbaden en winterzwemmen. Stap voor stap wennen aan de kou.",
     warm: false,
   },
   {
     naam: "Ademhaling",
-    tekst: "Rustige ademoefeningen die je hoofd stil maken en je lijf laten zakken.",
+    tekst:
+      "Rustige ademoefeningen die je hoofd stil maken en je lijf laten zakken.",
     warm: true,
   },
   {
@@ -18,7 +20,8 @@ const pijlers = [
   },
   {
     naam: "Vasten",
-    tekst: "Intermittent fasting, eerlijk uitgelegd: wat het me bracht en waar je op let.",
+    tekst:
+      "Intermittent fasting, eerlijk uitgelegd: wat het me bracht en waar je op let.",
     warm: true,
   },
 ];
@@ -43,10 +46,18 @@ export default function Home() {
             Vuur van Binnen
           </Link>
           <nav className="nav-links" aria-label="Hoofdmenu">
-            <a href="#" className="nav-link">Mijn verhaal</a>
-            <a href="#pijlers" className="nav-link">Pijlers</a>
-            <a href="#" className="nav-link">Blog</a>
-            <a href="#" className="nav-link">Agenda</a>
+            <a href="#" className="nav-link">
+              Mijn verhaal
+            </a>
+            <a href="#pijlers" className="nav-link">
+              Pijlers
+            </a>
+            <a href="#" className="nav-link">
+              Blog
+            </a>
+            <a href="#" className="nav-link">
+              Agenda
+            </a>
           </nav>
         </div>
       </header>
@@ -54,14 +65,20 @@ export default function Home() {
       <main>
         {/* Hero */}
         <section className="hero section frost">
-          <div className="orb" style={{ width: 520, height: 520, right: "-120px", top: "-80px" }} />
+          <div
+            className="orb"
+            style={{ width: 520, height: 520, right: "-120px", top: "-80px" }}
+          />
           <div className="embers" aria-hidden="true">
             {Array.from({ length: 14 }, (_, i) => (
               <span key={i} />
             ))}
           </div>
 
-          <div className="container-page stack" style={{ position: "relative", gap: 28 }}>
+          <div
+            className="container-page stack"
+            style={{ position: "relative", gap: 28 }}
+          >
             <p className="eyebrow eyebrow-dot">Helmond · Eindhoven</p>
             <h1 className="display">
               Koud van buiten,
@@ -69,8 +86,9 @@ export default function Home() {
               <span className="text-flame">vuur van binnen.</span>
             </h1>
             <p className="lead">
-              Na mijn ongeluk en hersenletsel moest ik mijn kracht opnieuw vinden. Met kou,
-              ademhaling, beweging en vasten. Hier laat ik eerlijk zien hoe — stap voor stap.
+              Na mijn ongeluk en hersenletsel moest ik mijn kracht opnieuw
+              vinden. Met kou, ademhaling, beweging en vasten. Hier laat ik
+              eerlijk zien hoe — stap voor stap.
             </p>
             <div className="row">
               <a href="#" className="btn btn-flame btn-lg heat">
@@ -95,8 +113,15 @@ export default function Home() {
             </div>
             <div className="grid-auto">
               {pijlers.map((p) => (
-                <a key={p.naam} href="#" className={`card card-hover${p.warm ? " card-warm" : ""}`}>
-                  <span className={`tag${p.warm ? " tag-warm" : ""}`} style={{ alignSelf: "flex-start" }}>
+                <a
+                  key={p.naam}
+                  href="#"
+                  className={`card card-hover${p.warm ? "card-warm" : ""}`}
+                >
+                  <span
+                    className={`tag${p.warm ? "tag-warm" : ""}`}
+                    style={{ alignSelf: "flex-start" }}
+                  >
                     {p.naam}
                   </span>
                   <h3 className="h3">{p.naam}</h3>

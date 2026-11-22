@@ -8,9 +8,16 @@
     "start": "next start",
     "lint": "eslint",
     "prepare": "husky",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "next typegen && tsc --noEmit",
     "format": "prettier --write .",
     "test": "vitest run --passWithNoTests"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,md,json}": "prettier --write"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
@@ -25,7 +32,7 @@
   "devDependencies": {
     "@tailwindcss/turbopack": "4.3.3",
     "@testing-library/react": "^16.3.3",
-    "@types/node": "^20",
+    "@types/node": "^26.6.6",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^6.3.0",
