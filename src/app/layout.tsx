@@ -15,7 +15,7 @@ const instrument = Instrument_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Vuur van Binnen",
+  title: "Vuur van Binnen | De weg om je innerlijke vuur te vinden!",
   description:
     "Koud van buiten, vuur van binnen. Kracht terugvinden na tegenslag met kou, ademhaling, beweging en vasten.",
 };
