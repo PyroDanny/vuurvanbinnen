@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/Button";
 import clsx from "clsx";
 
 const pijlers = [
@@ -69,6 +70,12 @@ export default function Home() {
           </div>
         </div>
         <div className="horizon" />
+
+        <Button>Primair</Button>
+        <Button variant="secundair">Secundair</Button>
+        <Button variant="ghost" size="sm">
+          Ghost klein
+        </Button>
       </section>
 
       <div className="flame-line" />
