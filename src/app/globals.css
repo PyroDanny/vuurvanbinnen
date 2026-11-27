@@ -284,9 +284,6 @@
   --flame-text: #ffb37a;
   --flame-soft: rgba(255, 107, 44, 0.16);
   --glow: rgba(255, 107, 44, 0.5);
-  --frost-a: #f4fbff;
-  --frost-b: #cfefff;
-  --frost-c: #8fd3f4;
   --frost-glow: rgba(143, 211, 244, 0.42);
   --flame-a: #ffb37a;
   --flame-b: #ff6b2c;
@@ -640,28 +637,6 @@
   animation: var(--animate-flame-shift);
 }
 
-/* Koude tekst: text-frost
-   IJzig verloop (wit → ijsblauw) met een koude gloed en een trage glinstering.
-   Tegenhanger van text-flame, bijv. <span class="text-frost">Koud van buiten,</span> */
-@utility text-frost {
-  background: linear-gradient(
-    100deg,
-    var(--frost-a) 0%,
-    var(--frost-b) 30%,
-    var(--frost-c) 50%,
-    var(--frost-d) 70%,
-    var(--frost-a) 100%
-  );
-  background-size: 240% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 18px var(--frost-glow-soft))
-    drop-shadow(0 0 2px var(--frost-glow));
-  animation: var(--animate-frost-shimmer);
-}
-
 /* Alleen de koude gloed, de tekstkleur blijft: glow-frost
    Handig op gewone tekst, labels of een cijfer (bijv. de ademtimer). */
 @utility glow-frost {
@@ -911,8 +886,12 @@
     gap: 0;
     overflow: hidden;
   }
+  .card-media > .photo {
+    border-radius: 0;
+  }
   .card-body {
     display: flex;
+    flex: 1;
     flex-direction: column;
     gap: 10px;
     padding: 24px 26px 30px;
