@@ -1,3 +1,4 @@
+import { Badge } from "@/components/ui/Badge";
 import { Card, CardBody } from "@/components/ui/Card";
 import { Tag } from "@/components/ui/Tag";
 import type { Metadata } from "next";
@@ -51,6 +52,7 @@ export default function UiPage() {
           <div className="row">
             <Tag tone="warm">Tag warm</Tag>
             <Tag>Tag ice cold</Tag>
+            <Badge tone="warm"></Badge>
           </div>
         </div>
       </section>
