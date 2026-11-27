@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/Badge";
 import { Card, CardBody } from "@/components/ui/Card";
+import { Input } from "@/components/ui/Input";
 import { Tag } from "@/components/ui/Tag";
 import type { Metadata } from "next";
 
@@ -28,7 +29,7 @@ export default function UiPage() {
               <CardBody>
                 <h3 className="h3">Kou</h3>
                 <p>Bescherm jezelf tegen kou en zorg voor voldoende warmte.</p>
-                <span className="text-flame-text font-semibold">
+                <span className="text-flame-text mt-auto font-semibold">
                   Begin hier →
                 </span>
               </CardBody>
@@ -53,6 +54,12 @@ export default function UiPage() {
             <Tag tone="warm">Tag warm</Tag>
             <Tag>Tag ice cold</Tag>
             <Badge tone="warm"></Badge>
+            <Input
+              label="Je e-mailadres"
+              type="email"
+              placeholder="naam@voorbeeld.nl"
+            />
+            <Input label="Je naam" />
           </div>
         </div>
       </section>
