@@ -848,6 +848,7 @@
     display: inline-flex;
     align-items: center;
     padding: 6px 14px;
+    width: fit-content;
     border-radius: 999px;
     background: var(--ice-soft);
     color: var(--text);
