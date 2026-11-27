@@ -942,6 +942,12 @@
     box-shadow: 0 0 0 4px var(--flame-soft);
     outline: none;
   }
+  textarea.input {
+    padding: 16px 20px;
+    min-height: 160px;
+    resize: vertical;
+    line-height: 1.6;
+  }
 
   /* Placeholders voor foto's (alleen nog in wireframes; echte beelden: zie 7b) */
   .ph-cold {

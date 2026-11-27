@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/Badge";
 import { Card, CardBody } from "@/components/ui/Card";
 import { Input } from "@/components/ui/Input";
+import { Textarea } from "@/components/ui/Textarea";
 import { Tag } from "@/components/ui/Tag";
 import type { Metadata } from "next";
 
@@ -54,13 +55,21 @@ export default function UiPage() {
             <Tag tone="warm">Tag warm</Tag>
             <Tag>Tag ice cold</Tag>
             <Badge tone="warm"></Badge>
+          </div>
+        </div>
+      </section>
+      <section className="section">
+        <div className="container-page stack">
+          <h2>Formulier</h2>
+          <Card className="max-w-xl">
             <Input
               label="Je e-mailadres"
               type="email"
               placeholder="naam@voorbeeld.nl"
             />
             <Input label="Je naam" />
-          </div>
+            <Textarea label="Je bericht" />
+          </Card>
         </div>
       </section>
     </main>
